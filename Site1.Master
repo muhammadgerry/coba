@@ -1,0 +1,199 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ReportFiducia.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title></title>
+    
+    
+    <link href="bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="jquery/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <%--<script src="jquery/jquery-ui.js" type="text/javascript"></script>--%>
+    <script src="bootstrap-3.4.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <%--<script src="bootstrap-3.4.1-dist/js/bootstrap.js" type="text/javascript"></script>--%>
+    <%--<script src="jquery/jquery.js" type="text/javascript"></script>--%>
+    <script src="jquery/jquery.min.js" type="text/javascript"></script>
+    
+    <%--Datepicker--%>
+    <link href="jquery/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="jquery/jquery.js" type="text/javascript"></script>
+    <%--<script src="jquery/jquery.min.js" type="text/javascript"></script>--%>
+    <script src="jquery/jquery-ui.js" type="text/javascript"></script>
+
+   <style type="text/css">
+   
+   .right   { text-align: right;}
+   
+   .ui-datepicker select.ui-datepicker-month,
+        .ui-datepicker select.ui-datepicker-year {
+            color:black!important;
+        }
+
+   .shadow{
+   
+        box-shadow: 5px 10px 18px #888888;
+   }
+   
+   .menu
+   {
+   	
+   	}
+   </style>
+   
+   
+   <style>
+body {
+  font-family: "Lato", sans-serif;
+  font-size : 11px
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #4682B4;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.bgprimer
+{
+    background-color: #4682B4;	
+    color:White;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 14px;
+  color: White;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+       
+    </asp:ContentPlaceHolder>    
+</head>
+<body>
+
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a  id="User" runat="server"> <asp:Label ID="Userlbl" runat="server"></asp:Label> </a>
+  <hr />
+  <a  id="newppd" runat="server"> Report All  Fiducia New PPD </a>
+  <a  id="oc" runat="server"> Report All Fiducia Over Credit </a>
+  <a  id="roya" runat="server"> Report Roya Fiducia </a>
+  <a  id="aging" runat="server"> Report Aging Fiducia </a>
+</div>
+
+
+    <form id="form1" runat="server">
+    
+ <nav class="navbar navbar-default" style="display:none">
+  <div class="container-fluid" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header ">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="Home.aspx"><b>Home</b></a>
+    </div>
+        
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <%-- <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>--%>
+     <%-- <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>--%>
+      <ul class="nav navbar-nav navbar-left" style="display:none">
+       <li>
+           <a><asp:Label ID="Nama" runat="server"></asp:Label></a> 
+       </li>
+        <%--<li><asp:LinkButton ID="LinkButton1" runat="server" ForeColor="Red" OnClick="Button1_Click">Logout</asp:LinkButton></li>--%>
+       <%-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>--%>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+   
+   
+     <div>
+        <span style="font-size:25px;cursor:pointer;margin-right:0px;color: #4682B4;" onclick="openNav()" class="pull-right"> MENU &#9776;</span>
+     
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    
+    
+  
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+       
+</body>
+</html>
